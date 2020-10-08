@@ -37,7 +37,7 @@ class LoginForm extends React.Component {
               You ain't seen nothin' till you Observit!
             </h2>
           </Header>
-          <Content>
+          <Content style={{ height: "100vh" }}>
             <div className="form">
               <img
                 src={LoginDINO}

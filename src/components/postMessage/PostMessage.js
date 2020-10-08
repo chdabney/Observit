@@ -6,7 +6,6 @@ function PostMessage(props) {
   return (
     <div className="messageForm" style={{ background: "#e6e6ea" }}>
       <form id="message-form" onSubmit={props.handlePostMessage}>
-        <label htmlFor="text">Tell us what you're thinking!</label>
         <TextArea
           style={{ background: "#e6e6ea" }}
           rows={4}
@@ -15,6 +14,7 @@ function PostMessage(props) {
           type="text"
           name="text"
           value={props.text}
+          placeholder="Tells Us what you're thinking!"
           required
           onChange={props.handleChange}
         />

@@ -4,7 +4,7 @@ import Spinner from "react-spinkit";
 import "./UpdateUser.css";
 import DataService from "../../DataService";
 
-import { Button } from "antd";
+import { Button, Popconfirm } from "antd";
 
 class UpdateUser extends React.Component {
   constructor(props) {
@@ -29,7 +29,6 @@ class UpdateUser extends React.Component {
   };
 
   handleDelete = (e) => {
-    e.preventDefault();
     this.client
       .deleteUser()
       .then((payload) => {
@@ -43,21 +42,15 @@ class UpdateUser extends React.Component {
       });
   };
 
+  confirm = () => {
+    this.handleDelete();
+  };
+
   render() {
+    const text = "Are you sure to delete this task?";
     const { loading, error } = this.props;
     return (
       <div className="UpdateUserForm">
-        {/* <form id="udate-about-form" onSubmit={this.handleUpdate}>
-          <label htmlFor="about">About</label>
-          <input
-            type="text"
-            name="about"
-            required
-            onChange={this.handleChange}
-          />
-          <button>update about me</button>
-        </form> */}
-
         <h2>Update userinfo</h2>
         <form id="update-form" onSubmit={this.handleUpdate}>
           <label htmlFor="username">Display Name</label>
@@ -75,13 +68,22 @@ class UpdateUser extends React.Component {
             required
             onChange={this.handleChange}
           />
-          <Button type="submit" disabled={loading}>
+          <Button type="submit" disabled={loading} onClick={this.handleUpdate}>
             Update
           </Button>
         </form>
-        <Button type="primary" danger onClick={this.handleDelete}>
-          Delete User
-        </Button>
+        <h2>Delete Account</h2>
+        <Popconfirm
+          placement="right"
+          title="Are you sure you want to delete your account?"
+          onConfirm={this.confirm}
+          okText="Yes"
+          cancelText="No"
+        >
+          <Button type="primary" danger className="deleteButton">
+            Delete User
+          </Button>
+        </Popconfirm>
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
       </div>

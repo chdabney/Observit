@@ -2,7 +2,7 @@ import React from "react";
 import Message from "../message/Message";
 import DataService from "../../DataService";
 
-class UserMessages extends React.Component {
+class TopComments extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,14 +37,14 @@ class UserMessages extends React.Component {
     return (
       <div className="messageList">
         {this.state.messages
-          .filter((usersMessage) => {
-            return usersMessage.username === this.client.getUserName();
+          .filter((topLikes) => {
+            return topLikes.likes.length >= 5;
           })
-          .map((usersMessage) => (
+          .map((likes) => (
             <Message
               handleDeleteMesssage={this.handleDeleteMesssage}
-              key={usersMessage.id}
-              {...usersMessage}
+              key={likes.id}
+              {...likes}
             />
           ))}
       </div>
@@ -52,4 +52,4 @@ class UserMessages extends React.Component {
   }
 }
 
-export default UserMessages;
+export default TopComments;

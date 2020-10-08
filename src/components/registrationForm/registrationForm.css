@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
 }
-registrationForm {
-  display: flex;
-  align-items: center;
+label {
+  color: red;
 }

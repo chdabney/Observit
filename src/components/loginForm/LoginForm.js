@@ -2,7 +2,7 @@ import React from "react";
 import Spinner from "react-spinkit";
 import { withAsyncAction } from "../../redux/HOCs";
 import "./LoginForm.css";
-import RegistrationFormButton from "../registrationForm/registrationFormButton";
+import RegistrationFormButton from "../registrationForm/RegistrationFormButton";
 import DINO from "../../images/Dino-PIC.png";
 import LoginDINO from "../../images/login-dino-pic.png";
 import { Layout } from "antd";
@@ -32,7 +32,7 @@ class LoginForm extends React.Component {
     return (
       <div className="LoginForm">
         <Layout>
-          <Header>
+          <Header className="loginHeader">
             <h2 className="slogan">
               You ain't seen nothin' till you Observit!
             </h2>
@@ -52,18 +52,19 @@ class LoginForm extends React.Component {
                 </div>
 
                 <div className="imput">
-                  <label htmlFor="username">Username</label>
                   <input
                     type="text"
                     name="username"
+                    placeholder="username"
                     autoFocus
                     required
                     onChange={this.handleChange}
                   />
-                  <label htmlFor="password">Password</label>
+
                   <input
                     type="password"
                     name="password"
+                    placeholder="password"
                     required
                     onChange={this.handleChange}
                   />
@@ -78,7 +79,9 @@ class LoginForm extends React.Component {
               </form>
             </div>
           </Content>
-          <Footer>Observit ©2020 Created by Team 404</Footer>
+          <Footer className="loginFooter">
+            Observit ©2020 Created by Team 404
+          </Footer>
         </Layout>
 
         {/* <div className="form">

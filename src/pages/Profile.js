@@ -3,7 +3,7 @@ import Menu from "../components/menu/Menu";
 import UpdateUser from "../components/updateUser/UpdateUser";
 import UserMessages from "../components/userMessages/UserMessages";
 
-import UpdateAbout from "../components/updateAbout/updateAbout";
+import UpdateAbout from "../components/updateAbout/UpdateAbout";
 import { userIsAuthenticated } from "../redux/HOCs";
 import UploadPicture from "../components/getUserPicture/GetUserPicture";
 import { Layout } from "antd";

@@ -1,42 +1,46 @@
 * {
   box-sizing: border-box;
 }
-.messageList {
-  padding: 5px;
-  background-color: #94b1af;
-}
+
 /* I renamed this css styling */
 
-.avatar {
-  display: block;
-  margin-right: auto;
-}
 .message-feed {
   /* background-image: linear-gradient(to left, rgba(255, 0, 0, 0), #274b69); */
-  text-align: center;
+
   list-style: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #e6e6ea;
-
-  border-radius: 25px;
-  background-color: #204d55;
+  padding: 10px;
+  background-color: #94b1af;
+  border: 1px solid #204d55;
   padding: 15px;
-  margin: 15px;
 }
-.like-button {
-  text-align: center;
-  width: 45px;
-  border-radius: 15px;
-  color: #0a3051;
+
+.comment-avatar {
+  margin-right: 40px;
 }
+
 .delete-button {
-  text-align: center;
-  justify-content: flex-start;
-  width: 130px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
-.username {
+
+.like-button {
+  color: black;
+  margin-right: 5px;
+}
+
+.ant-comment-content-author-name {
+  font-weight: bolder;
+}
+
+.text-div {
   font-size: large;
+  padding: 10px;
 }
-.date-created {
-  font-size: smaller;
+
+.username-span {
+  margin-left: 10px;
+  font-size: large;
 }

@@ -7,3 +7,7 @@
   text-align-last: left;
   word-break: break-word;
 }
+
+#update-about-form {
+  margin-bottom: 20px;
+}

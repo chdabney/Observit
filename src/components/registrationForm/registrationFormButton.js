@@ -1,6 +1,7 @@
 import { Modal, Button } from "antd";
 import React from "react";
-import RegistrationForm from "./registrationForm";
+import RegistrationForm from "./RegistrationForm";
+import "./RegistrationFormButton.css";
 
 class App extends React.Component {
   constructor(props) {

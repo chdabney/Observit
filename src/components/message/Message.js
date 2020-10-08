@@ -1,6 +1,8 @@
 import React from "react";
 import DataService from "../../DataService";
-import { Avatar, Button, Comment } from "antd";
+import { Avatar, Button, Comment, Tooltip } from "antd";
+
+import moment from "moment";
 import "./Message.css";
 
 class Message extends React.Component {
@@ -52,6 +54,8 @@ class Message extends React.Component {
     if (this.props.username === userName.username) {
       deleteMessageButton = (
         <Button
+          type="primary"
+          danger
           className="delete-button"
           onClick={() => this.props.handleDeleteMesssage(this.props.id)}
         >
@@ -59,26 +63,25 @@ class Message extends React.Component {
         </Button>
       );
     }
+
     return (
       <div className="message-feed">
         <Avatar
           className="avatar"
-          size={120}
+          size={60}
           src={`https://socialapp-api.herokuapp.com/users/${this.props.username}/picture`}
           alt="user"
           // onError={}
         />
-        <span className="username">{this.props.username}</span> posted:
-        <br />
-        {this.props.text}
-        <br />
+        <span className="username-span">{this.props.username} posted:</span>
+
+        <div className="text-div">{this.props.text}</div>
         <button className="like-button" onClick={this.handleLike}>
           <span role="img" aria-label="dino">
             🦕{this.state.likeCount}
           </span>
         </button>
-        <br />
-        {deleteMessageButton}{" "}
+        {deleteMessageButton}
         <span className="date-created">{this.props.createdAt}</span>
       </div>
     );
@@ -86,3 +89,23 @@ class Message extends React.Component {
 }
 //if we use emojis must be put in a span with role = img and aria-label
 export default Message;
+
+{
+  /* <Avatar
+className="avatar"
+size={80}
+src={`https://socialapp-api.herokuapp.com/users/${this.props.username}/picture`}
+alt="user"
+// onError={}
+/>
+<span>{this.props.username}</span>
+posted:
+<div>{this.props.text}</div>
+<button className="like-button" onClick={this.handleLike}>
+<span role="img" aria-label="dino">
+  🦕{this.state.likeCount}
+</span>
+</button>
+{deleteMessageButton}
+<span className="date-created">{this.props.createdAt}</span> */
+}

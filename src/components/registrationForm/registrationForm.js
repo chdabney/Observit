@@ -1,8 +1,8 @@
 import React from "react";
 import Spinner from "react-spinkit";
-import "./registrationForm.css";
 import { withAsyncAction } from "../../redux/HOCs";
 import DataService from "../../DataService";
+import "./RegistrationForm.css";
 
 class RegistrationForm extends React.Component {
   constructor(props) {
@@ -37,30 +37,32 @@ class RegistrationForm extends React.Component {
     return (
       <div className="RegistrationForm">
         <form id="registration-form" onSubmit={this.handleRegistration}>
-          <label htmlFor="username">Username</label>
           <br />
           <input
             type="text"
             name="username"
+            placeholder="username"
             autoFocus
             required
             onChange={this.handleChange}
           />
           <br />
-          <label htmlFor="displayName">Display Name</label>
+
           <br />
           <input
             type="text"
             name="displayName"
+            placeholder="displayName"
             required
             onChange={this.handleChange}
           />
           <br />
-          <label htmlFor="password">Password</label>
+
           <br />
           <input
             type="password"
             name="password"
+            placeholder="password"
             required
             onChange={this.handleChange}
           />

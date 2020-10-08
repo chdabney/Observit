@@ -2,11 +2,15 @@ import React from "react";
 import Menu from "../components/menu/Menu";
 import { userIsAuthenticated } from "../redux/HOCs";
 import MessageList from "../components/messageList/MessageList";
+import TopComments from "../components/topComments/TopComments";
 import { BackTop, Layout } from "antd";
+import yee from "../assets/yee.jpg";
+import "./Feed.css";
 
 const style = {
-  height: 100,
+  height: 50,
   width: 150,
+  marginRight: "40px",
   lineHeight: "40px",
   borderRadius: 4,
   backgroundColor: "#204d55",
@@ -15,33 +19,60 @@ const style = {
   fontSize: 14,
 };
 
-const { Content, Footer } = Layout;
+const { Content, Footer, Sider } = Layout;
 
 class Feed extends React.Component {
   render() {
     return (
-      <Layout style={{ background: "#94b1af" }}>
+      <div>
+        <Menu isAuthenticated={this.props.isAuthenticated} />
+
         <BackTop>
           <div style={style}>Back to top</div>
         </BackTop>
-        <div className="Feed">
-          <Menu isAuthenticated={this.props.isAuthenticated} />
-        </div>
+        <Layout>
+          <div className="wrapper">
+            <Content
+              style={{
+                padding: "0 50px",
+                background: "#e6e6ea",
+                width: "100px",
+              }}
+            >
+              <h1>Top Comments!</h1>
+              <TopComments />
+              <div className="about-us">
+                <h3>Our Mission statement:</h3>
+                <p>
+                  Boom boom acka-lacka lacka boom Boom boom acka-lacka boom boom
+                  It was a night like this forty million years ago I lit a
+                  cigarette, picked up a monkey skull to go The sun was spitting
+                  fire, the sky was blue as ice I felt a little tired, so I
+                  watched Miami Vice And walked the dinosaur, I walked the
+                  dinosaur Open the door, get on the floor Everybody walk the
+                  dinosaur Open the door, get on the floor Everybody walk the
+                  dinosaur Open the door, get on the floor Everybody walk the
+                  dinosaur Open the door, get on the floor Everybody walk the
+                  dinosaur
+                </p>
+              </div>
+              <div className="yee">
+                <img src={yee} alt="yee" />
+              </div>
+            </Content>
 
-        <Content
-          style={{
-            padding: "0 50px",
-            background: "#060b1b",
-            margin: "0 300px",
-          }}
-        >
-          <div
-            className="site-layout-content"
-            style={{ background: "#0a3051" }}
-          >
-            <MessageList />
+            <Content
+              style={{
+                padding: "0 50px",
+                background: "#e6e6ea",
+                width: "800px",
+              }}
+            >
+              <br />
+              <MessageList />
+            </Content>
           </div>
-        </Content>
+        </Layout>
 
         <Footer
           style={{
@@ -52,7 +83,7 @@ class Feed extends React.Component {
         >
           Observit ©2020 Created by Team 404
         </Footer>
-      </Layout>
+      </div>
     );
   }
 }
